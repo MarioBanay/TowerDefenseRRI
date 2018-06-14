@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Raketa : MonoBehaviour
 {
+
+    // Dodano u git
+    
     private int targetEnemyIndex;
 
     private const float SPEED_MULTYPLY = 3f;
