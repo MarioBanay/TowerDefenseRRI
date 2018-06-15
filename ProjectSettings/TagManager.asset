@@ -12,6 +12,7 @@ TagManager:
   - Grass
   - Path
   - Enemy
+  - Projectile
   layers:
   - Default
   - TransparentFX
