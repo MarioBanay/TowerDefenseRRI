@@ -66,18 +66,18 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log("Mrtav? " + this.isDead + " Health: " + this.health);
         if (!isDead)
         {
-        if (targetPosition < checkpoints.Length)
-        {
+            if (targetPosition < checkpoints.Length)
+                {
         // kretanje enemy-a prema finish-u
-        enemyPosition.position = Vector2.MoveTowards(enemyPosition.position, checkpoints[targetPosition].position, Time.deltaTime);
-        }
-        else 
-        {
-            enemyPosition.position = Vector2.MoveTowards(enemyPosition.position, finish.position, Time.deltaTime);
-        }
-
+                enemyPosition.position = Vector2.MoveTowards(enemyPosition.position, checkpoints[targetPosition].position, Time.deltaTime);
+                }
+            else 
+            {
+                enemyPosition.position = Vector2.MoveTowards(enemyPosition.position, finish.position, Time.deltaTime);
+            }
         }
 
     }
@@ -93,5 +93,14 @@ public class Enemy : MonoBehaviour
         {
             GameManager.Instance.UnregisterEnemy(this);
         }
+        else if (triggeredCollider.tag == "Projectile")
+        {
+            health -= 5;        
+        }
+        if (health <= 0)
+        {
+            isDead = true;         
+        }
+        
     }
 }

@@ -8,11 +8,17 @@ public class Tower : MonoBehaviour
     [SerializeField]
     private Raketa raketa;
 
+    public Raketa Raket
+    {
+        get
+        {
+            return raketa;
+        }
+    }
 
     // Use this for initialization
     void Start()
     {
-
         StartCoroutine(Shoot());
     }
 
@@ -24,18 +30,12 @@ public class Tower : MonoBehaviour
 
     IEnumerator Shoot()
     {
-        for (int i = 0; i < GameManager.Instance.EnemyList.Count; i++)
+       for (int i = 0; i < 6; i++)
         {
             yield return new WaitForSeconds(2f);
-            Debug.Log("Broj u enemylisti (for): " + GameManager.Instance.EnemyList.Count);
-            Debug.Log("Distanca: " + Vector2.Distance(GameManager.Instance.EnemyList[i].transform.position, transform.position));
-            if (Vector2.Distance(GameManager.Instance.EnemyList[i].transform.position, transform.position) < 5)
-            {
-                Raketa novaRaketa = Instantiate(raketa) as Raketa;
-                novaRaketa.TargetEnemyIndex = i;
-            }
+            Raketa novaRaketa = Instantiate(raketa) as Raketa;
         }
 
-
     }
+
 }
