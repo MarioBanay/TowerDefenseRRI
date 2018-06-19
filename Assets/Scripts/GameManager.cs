@@ -9,7 +9,6 @@ public class GameManager : Singleton<GameManager>
     private int enemiesPerSpawn = 2;
 
     private List<Enemy> enemyList = new List<Enemy>();
-    private List<Enemy> deadEnemyList = new List<Enemy>();
 
     public List<Enemy> EnemyList
     {
@@ -20,17 +19,14 @@ public class GameManager : Singleton<GameManager>
     }
 
     [SerializeField]
-    private Enemy[] enemies;
+    private Enemy[] enemyType;
 
-    private Enemy enemy;
-
-    private const float TIME_BETWEEN_SPAWN = 6f;
+    private const float TIME_BETWEEN_SPAWN = 4f;
 
     // Use this for initialization
     void Start()
     {
         StartCoroutine(Spawn());
-        StartCoroutine(RemoveDeadEnemies());
     }
 
     // Update is called once per frame
@@ -39,24 +35,12 @@ public class GameManager : Singleton<GameManager>
 
     }
 
-    IEnumerator RemoveDeadEnemies(){
-            foreach (var enemy in enemyList)
-        {
-            if (enemy.IsDead)
-            {
-                enemyList.Remove(enemy);
-                deadEnemyList.Add(enemy);
-            }
-        }
-        yield return new WaitForSeconds(0.5f);
-    }
-
     // Instanciranje enemy-a svakih TIME_BETWEEN_SPAWN sekundi
     IEnumerator Spawn()
     {
         for (int i = 0; i < enemiesPerSpawn; i++)
         {
-            Enemy newEnemy = Instantiate(enemies[0]) as Enemy;
+            Enemy newEnemy = Instantiate(enemyType[0]) as Enemy;
             yield return new WaitForSeconds(TIME_BETWEEN_SPAWN);
         }
     }

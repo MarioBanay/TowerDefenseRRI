@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
     private Transform finish;
     private int targetPosition;
     private Transform enemyPosition;
+    private Collider2D enemyCollider;
+
     private bool isDead;
 
     private int health;
@@ -43,20 +45,14 @@ public class Enemy : MonoBehaviour
             isDead = true;
         }
     }
-
-    public Transform EnemyPosition
-    {
-        get
-        {
-            return enemyPosition;
-        }
-    }
     
     // inicijalizacija
     void Start()
     {
         health = 15;
         isDead = false;
+        enemyCollider = GetComponent<Collider2D>();
+        enemyCollider.enabled = true;
         enemyPosition = GetComponent<Transform>();
         enemyPosition.position = spawnPoint.transform.position;
         targetPosition = 0;
@@ -95,11 +91,13 @@ public class Enemy : MonoBehaviour
         }
         else if (triggeredCollider.tag == "Projectile")
         {
-            health -= 5;        
+            health -= 5;    
+            triggeredCollider.tag = "Untagged";
         }
         if (health <= 0)
         {
-            isDead = true;         
+            isDead = true;
+            //enemyCollider.enabled = false;         
         }
         
     }
