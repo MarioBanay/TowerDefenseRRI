@@ -17,11 +17,12 @@ public class Enemy : MonoBehaviour
     private int targetPosition;
     private Transform enemyPosition;
     private Collider2D enemyCollider;
-
-    private bool isDead;
+    [SerializeField]
+    private int rewardAmount;
 
     [SerializeField]
     private int health;
+    private bool isDead;
 
     public int Health
     {
@@ -52,7 +53,6 @@ public class Enemy : MonoBehaviour
     // inicijalizacija
     void Start()
     {
-        health = 15;
         isDead = false;
         enemyCollider = GetComponent<Collider2D>();
         enemyCollider.enabled = true;
@@ -91,20 +91,27 @@ public class Enemy : MonoBehaviour
         }
         else if (triggeredCollider.tag == "Finish")
         {
+            GameManager.Instance.RoundEscaped += 1;
+            //GameManager.Instance.TotalEscaped += 1;
             GameManager.Instance.UnregisterEnemy(this);
+            GameManager.Instance.isWaveOver();
         }
         else if (triggeredCollider.tag == "Projectile")
         {
             health -= triggeredCollider.gameObject.GetComponent<Projectile>().Strenght;  
             triggeredCollider.tag = "Untagged";
             anim.Play("Hurt");
+            GameManager.Instance.AudioSource.PlayOneShot(SoundManager.Instance.Hit);
         }
         if (health <= 0)
         {
-            GameManager.Instance.KilledEnemies += 1;
             anim.SetTrigger("didDie");
             isDead = true;
-            enemyCollider.enabled = false;         
+            GameManager.Instance.TotalKilled += 1;
+            GameManager.Instance.AudioSource.PlayOneShot(SoundManager.Instance.Death);
+            enemyCollider.enabled = false;    
+            GameManager.Instance.addMoney(rewardAmount); 
+            GameManager.Instance.isWaveOver();    
         }      
     }
 }

@@ -131,7 +131,8 @@ MonoBehaviour:
   - {fileID: 4562606945023722, guid: 4890f4b75b13e0a4aa406d82df3194ac, type: 2}
   finish: {fileID: 4424670017780770, guid: fafa8d3fd1591754480b999a1130521b, type: 2}
   anim: {fileID: 0}
-  health: 0
+  rewardAmount: 2
+  health: 2
 --- !u!212 &212958954087269890
 SpriteRenderer:
   m_ObjectHideFlags: 1

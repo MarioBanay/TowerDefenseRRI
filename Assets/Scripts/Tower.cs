@@ -5,14 +5,20 @@ using System.Collections.Generic;
 public class Tower : MonoBehaviour
 {
     [SerializeField]
-    private GameObject projectile;
-    private Enemy nearestEnemy;
-
+    private int towerPrice;
+    private Projectile newProjectile;
     [SerializeField]
-    private GameObject newProjectile;
+    private Projectile projectile;
+    private Enemy nearestEnemy;
     private Transform targetPosition;
 
     private bool enemyInRange;
+
+    public int TowerPrice{
+        get{
+            return towerPrice;
+        }
+    }
 
     // Use this for initialization
     void Start()
@@ -39,9 +45,20 @@ public class Tower : MonoBehaviour
         Enemy nearestEnemy = getNearestEnemy();
         if (nearestEnemy != null && enemyInRange)
         {
-            newProjectile = Instantiate(projectile) as GameObject;
+            newProjectile = Instantiate(projectile) as Projectile;
             newProjectile.transform.position = transform.position;
             targetPosition = nearestEnemy.transform;
+            if (newProjectile.ProjectileType == ProType.arrow)
+            {
+                GameManager.Instance.AudioSource.PlayOneShot(SoundManager.Instance.Arrow);
+            } else if (newProjectile.ProjectileType == ProType.fireball)
+            {
+                GameManager.Instance.AudioSource.PlayOneShot(SoundManager.Instance.Fireball);
+
+            } else if (newProjectile.ProjectileType == ProType.rock)
+            {
+                GameManager.Instance.AudioSource.PlayOneShot(SoundManager.Instance.Rock);              
+            }
         }
             StartCoroutine(Shoot());
     }

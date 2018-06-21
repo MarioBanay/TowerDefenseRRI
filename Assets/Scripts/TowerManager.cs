@@ -3,10 +3,13 @@ using UnityEngine;
 
 public class TowerManager : Singleton<TowerManager>
 {
+
     private Tower newTower;
     private SpriteRenderer sprite;
     private SpriteRenderer spriteFromButton;
-    private List<Tower> towerList;
+    private List<Tower> towerList = new List<Tower>();
+    public List<Collider2D> buildList = new List<Collider2D>();
+    private Collider2D buildTile;
 
     public List<Tower> TowerList
     {
@@ -16,10 +19,11 @@ public class TowerManager : Singleton<TowerManager>
         }
     }
 
+
     // Use this for initialization
     void Start()
     {
-        towerList = new List<Tower>();
+        buildTile = GetComponent<Collider2D>();
         sprite = GetComponent<SpriteRenderer>();
         sprite.enabled = false;
     }
@@ -45,6 +49,27 @@ public class TowerManager : Singleton<TowerManager>
         }
     }
 
+    public void registerBuildSite(Collider2D buildTag){
+        buildList.Add(buildTag);
+    }
+
+    public void destroyAllTowers(){
+        foreach (Tower tower in towerList)
+        {
+            Destroy(tower.gameObject);
+        }
+        TowerList.Clear();
+    }
+
+    public void renameTagsBildSites()
+    {
+        foreach (Collider2D buildTag in buildList)
+        {
+            buildTag.tag = "Buildsite";
+        }
+        buildList.Clear();
+    }
+
     public void placeTower(Vector2 position, Tower selectedTower)
     {
         RaycastHit2D colliderPoint = Physics2D.Raycast(position, Vector2.zero);
@@ -55,17 +80,30 @@ public class TowerManager : Singleton<TowerManager>
                 Tower tower = Instantiate(selectedTower) as Tower;
                 RegisterTower(tower);
                 tower.transform.position = position;
+                buyTower(selectedTower.TowerPrice);
+                GameManager.Instance.AudioSource.PlayOneShot(SoundManager.Instance.TowerBuilt);
                 sprite.enabled = false;
                 newTower = null;
                 colliderPoint.collider.tag = "Buildsitefull";
+                registerBuildSite(colliderPoint.collider);
+
             }
         }
     }
 
+    public void buyTower(int price){
+        GameManager.Instance.subtractMoney(price);
+    }
+
     public void fromPressedButton(Tower selectedTower)
     {
+        Debug.Log("Price: " + selectedTower.TowerPrice);
+        if (selectedTower.TowerPrice <= GameManager.Instance.TotalMoney)
+        {
+            
         newTower = selectedTower;
         sprite.enabled = true;
+        }
     }
 
     private void DragSprite(Sprite spriteToDrag)

@@ -12,7 +12,7 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     private int strenght;
     [SerializeField]
-    private ProType type;
+    private ProType projectileType;
 
     public int Strenght
     {
@@ -21,11 +21,11 @@ public class Projectile : MonoBehaviour
             return strenght;
         }
     }
-    public ProType Type
+    public ProType ProjectileType
     {
         get
         {
-            return type;
+            return projectileType;
         }
     }
 

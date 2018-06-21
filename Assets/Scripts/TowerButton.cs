@@ -6,14 +6,12 @@ public class TowerButton : MonoBehaviour {
 
     [SerializeField]
     private GameObject tower;
+	[SerializeField]
+	private int towerPrice;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	public int TowerPrice {
+		get {
+			return towerPrice;
+		}
 	}
 }
