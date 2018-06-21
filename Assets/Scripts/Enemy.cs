@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
     private Transform[] checkpoints;
     [SerializeField]
     private Transform finish;
+    [SerializeField]
+    private Animator anim;
     private int targetPosition;
     private Transform enemyPosition;
     private Collider2D enemyCollider;
@@ -54,6 +56,7 @@ public class Enemy : MonoBehaviour
         isDead = false;
         enemyCollider = GetComponent<Collider2D>();
         enemyCollider.enabled = true;
+        anim = GetComponent<Animator>();
         enemyPosition = GetComponent<Transform>();
         enemyPosition.position = spawnPoint.transform.position;
         targetPosition = 0;
@@ -92,12 +95,14 @@ public class Enemy : MonoBehaviour
         }
         else if (triggeredCollider.tag == "Projectile")
         {
-            health -= 5;    
-            triggeredCollider.tag = "Untagged";  
+            health -= triggeredCollider.gameObject.GetComponent<Projectile>().Strenght;  
+            triggeredCollider.tag = "Untagged";
+            anim.Play("Hurt");
         }
         if (health <= 0)
         {
             GameManager.Instance.KilledEnemies += 1;
+            anim.SetTrigger("didDie");
             isDead = true;
             enemyCollider.enabled = false;         
         }      
