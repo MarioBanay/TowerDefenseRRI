@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212958954087269890}
   - component: {fileID: 50106311991974480}
   - component: {fileID: 114972944734867018}
-  - component: {fileID: 61847950120734512}
+  - component: {fileID: 61509816205781854}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Enemy
@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1372659880851376}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.580664, y: 2.9466016, z: 0}
+  m_LocalPosition: {x: 1.9771941, y: -4.136156, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -63,18 +63,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &61847950120734512
+--- !u!61 &61509816205781854
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1372659880851376}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 1
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,6 +112,7 @@ MonoBehaviour:
   - {fileID: 4057984249319380, guid: 2fc7f264097cc5140805efaf8d9cead0, type: 2}
   - {fileID: 4562606945023722, guid: 4890f4b75b13e0a4aa406d82df3194ac, type: 2}
   finish: {fileID: 4424670017780770, guid: fafa8d3fd1591754480b999a1130521b, type: 2}
+  health: 0
 --- !u!212 &212958954087269890
 SpriteRenderer:
   m_ObjectHideFlags: 1

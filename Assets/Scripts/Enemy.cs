@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
 
     private bool isDead;
 
+    [SerializeField]
     private int health;
 
     public int Health
@@ -92,13 +93,13 @@ public class Enemy : MonoBehaviour
         else if (triggeredCollider.tag == "Projectile")
         {
             health -= 5;    
-            triggeredCollider.tag = "Untagged";
+            triggeredCollider.tag = "Untagged";  
         }
         if (health <= 0)
         {
+            GameManager.Instance.KilledEnemies += 1;
             isDead = true;
-            //enemyCollider.enabled = false;         
-        }
-        
+            enemyCollider.enabled = false;         
+        }      
     }
 }

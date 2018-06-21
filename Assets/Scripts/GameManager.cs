@@ -1,12 +1,27 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
 
-    private int totalEnemies = 6;
-    private int enemiesPerSpawn = 2;
+    private int level;
+
+    [SerializeField]
+    private int escapedEnemies;
+    [SerializeField]
+    private int killedEnemies;
+
+    public int KilledEnemies{
+        get {
+            return killedEnemies;
+        }
+        set {
+            killedEnemies = value;
+        }
+    }
+    private int enemiesPerWave = 3;
 
     private List<Enemy> enemyList = new List<Enemy>();
 
@@ -26,6 +41,9 @@ public class GameManager : Singleton<GameManager>
     // Use this for initialization
     void Start()
     {
+        killedEnemies = 0;
+        escapedEnemies = 0;
+        level = 1;
         StartCoroutine(Spawn());
     }
 
@@ -38,7 +56,7 @@ public class GameManager : Singleton<GameManager>
     // Instanciranje enemy-a svakih TIME_BETWEEN_SPAWN sekundi
     IEnumerator Spawn()
     {
-        for (int i = 0; i < enemiesPerSpawn; i++)
+        for (int i = 0; i < enemiesPerWave; i++)
         {
             Enemy newEnemy = Instantiate(enemyType[0]) as Enemy;
             yield return new WaitForSeconds(TIME_BETWEEN_SPAWN);
@@ -56,7 +74,14 @@ public class GameManager : Singleton<GameManager>
     {
         enemyList.Remove(enemy);
         Destroy(enemy.gameObject);
+        escapedEnemies += 1;
     }
-
-    
+    private void DestroyAllEnemies()
+    {
+        foreach (var enemy in enemyList)
+        {
+            Destroy(enemy.gameObject);
+        }
+        EnemyList.Clear();
+    }
 }

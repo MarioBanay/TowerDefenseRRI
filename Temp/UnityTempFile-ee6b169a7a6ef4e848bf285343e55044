@@ -180,6 +180,7 @@
 -define:UNITY_TEAM_LICENSE
 'Assets/Scripts/Enemy.cs'
 'Assets/Scripts/GameManager.cs'
+'Assets/Scripts/Projectile.cs'
 'Assets/Scripts/Singleton.cs'
 'Assets/Scripts/Tower.cs'
 'Assets/Scripts/TowerButton.cs'

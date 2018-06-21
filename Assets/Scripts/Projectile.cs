@@ -29,4 +29,12 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D triggeredCollider)
+    {
+        if (triggeredCollider.tag == "Enemy")
+        {
+            Destroy(this.gameObject);
+        }   
+    }
+
 }
