@@ -9,20 +9,19 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1924029831475622}
+  m_RootGameObject: {fileID: 1695594489835610}
   m_IsPrefabParent: 1
---- !u!1 &1924029831475622
+--- !u!1 &1695594489835610
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4422528486906318}
-  - component: {fileID: 212046404295618846}
-  - component: {fileID: 114600932553888490}
-  - component: {fileID: 61218736619676006}
-  - component: {fileID: 114524286243761888}
+  - component: {fileID: 4271901740652338}
+  - component: {fileID: 212056729363568688}
+  - component: {fileID: 61966422035473336}
+  - component: {fileID: 114147338086873820}
   m_Layer: 0
   m_Name: Rock
   m_TagString: Projectile
@@ -30,74 +29,63 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4422528486906318
+--- !u!4 &4271901740652338
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1924029831475622}
+  m_GameObject: {fileID: 1695594489835610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.1472502, y: -3.4134223, z: 0.053524464}
+  m_LocalPosition: {x: 1.5290833, y: -2.9284065, z: 1.0858892}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61218736619676006
+--- !u!61 &61966422035473336
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1924029831475622}
+  m_GameObject: {fileID: 1695594489835610}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.24933334, y: 0.196}
-    newSize: {x: 4.2, y: 0.39}
+    newSize: {x: 0.84, y: 0.078}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.3}
+  m_Size: {x: 0.9, y: 0.2}
   m_EdgeRadius: 0
---- !u!114 &114524286243761888
+--- !u!114 &114147338086873820
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1924029831475622}
+  m_GameObject: {fileID: 1695594489835610}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23842c2c1f1bf41b693d44bde034d1ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strenght: 5
+  strenght: 2
   projectileType: 1
---- !u!114 &114600932553888490
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1924029831475622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!212 &212046404295618846
+--- !u!212 &212056729363568688
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1924029831475622}
+  m_GameObject: {fileID: 1695594489835610}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -125,13 +113,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 869be7a42ffa3b64082552cca90728f2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4.2, y: 0.39}
+  m_Size: {x: 0.84, y: 0.078}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

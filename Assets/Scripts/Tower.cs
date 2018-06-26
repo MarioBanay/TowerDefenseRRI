@@ -45,7 +45,9 @@ public class Tower : MonoBehaviour
         Enemy nearestEnemy = getNearestEnemy();
         if (nearestEnemy != null && enemyInRange)
         {
+            Debug.Log("Before");
             newProjectile = Instantiate(projectile) as Projectile;
+            Debug.Log("After");
             newProjectile.transform.position = transform.position;
             targetPosition = nearestEnemy.transform;
             if (newProjectile.ProjectileType == ProType.arrow)

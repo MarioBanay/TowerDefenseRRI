@@ -97,7 +97,6 @@ public class TowerManager : Singleton<TowerManager>
 
     public void fromPressedButton(Tower selectedTower)
     {
-        Debug.Log("Price: " + selectedTower.TowerPrice);
         if (selectedTower.TowerPrice <= GameManager.Instance.TotalMoney)
         {
             

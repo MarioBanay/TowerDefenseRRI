@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00d3bfbcff0e7b84d9237a1579949f4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalWaves: 2
+  totalWaves: 3
   totalMoneyLbl: {fileID: 0}
   currentWaveLbl: {fileID: 0}
   totalEscapedLbl: {fileID: 0}
@@ -140,5 +140,8 @@ MonoBehaviour:
   playBtn: {fileID: 0}
   enemyType:
   - {fileID: 114972944734867018, guid: e2912eac788638e4bb8f33cd78e7750b, type: 2}
-  totalEnemies: 3
-  totalMoney: 10
+  - {fileID: 114659379712546588, guid: 0ddba1690c6fd49b3a8e73caf8cbbf3a, type: 2}
+  - {fileID: 114973401206143010, guid: 48f2d551f1fad4657b3fdf9796ba64a0, type: 2}
+  waveNumber: 1
+  totalEnemies: 5
+  totalMoney: 15
