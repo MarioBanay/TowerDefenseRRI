@@ -218,7 +218,6 @@ public class GameManager : Singleton<GameManager>
         } else if (waveNumber == totalWaves)
         {
             currentState = gameStatus.win;
-            Debug.Log("check");
         } else {
             currentState = gameStatus.next;
         }
