@@ -6,5 +6,11 @@ AnimatorOverrideController:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Enemy3
-  m_Controller: {fileID: 0}
-  m_Clips: []
+  m_Controller: {fileID: 9100000, guid: e05f3d052d93a4e7ab73d298c35778d8, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 29a9d985b986442d29c0ed91a52d9ec1, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: fd94bdd5c3d56468e957c59401e3487e, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 70a65f4daad0e414d97591cb79775785, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 82059cf5452c943c5839b2e45412816b, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 261f00942ae4f4767a90b9b417352d14, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: aa154bd5f6c744a2182f6c0debe2ce23, type: 2}

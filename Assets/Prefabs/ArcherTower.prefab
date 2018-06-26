@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerPrice: 5
-  projectile: {fileID: 114524286243761888, guid: 162d06a08f1744262a55e86eb6dea666,
+  projectile: {fileID: 114147338086873820, guid: 162d06a08f1744262a55e86eb6dea666,
     type: 2}
 --- !u!212 &212486505956920070
 SpriteRenderer:

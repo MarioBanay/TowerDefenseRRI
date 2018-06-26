@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23842c2c1f1bf41b693d44bde034d1ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strenght: 2
+  strenght: 3
   projectileType: 1
 --- !u!212 &212056729363568688
 SpriteRenderer:
